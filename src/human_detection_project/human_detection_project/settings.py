@@ -25,7 +25,8 @@ SECRET_KEY = '6eehzrt30eksed8y5vn@&2o#c6yb50wf=0gd6s85^p2(d36p$h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.10.73", "127.0.0.1", ]
+APPEND_SLASH = False
 
 
 # Application definition
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'human_detection_api',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
@@ -50,7 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'human_detection_project.urls'
 
